@@ -6,7 +6,8 @@ def rgb(r, g, b, text):
         return "\033[38;2;{};{};{}m{}\033[38;2;255;255;255m".format(r, g, b, text)
 
 def set_console_title(text:str):
-    sys.stdout.write(f"\x1b]2;{text}\x07")
+    if os.name == "nt":
+        sys.stdout.write(f"\x1b]2;{text}\x07")
 
 def current_time_str() -> str:
      now = datetime.now()

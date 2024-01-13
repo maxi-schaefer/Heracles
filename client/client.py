@@ -7,7 +7,7 @@ from threading import Thread
 class Client():
     run = False
 
-    def __init__(self, connect:Tuple[str, int]=("localhost", 6969)) -> None:
+    def __init__(self, connect:Tuple[str, int]=("192.168.178.100", 6969)) -> None:
         signal.signal(signal.SIGINT, self.exit_gracefully)
         signal.signal(signal.SIGTERM, self.exit_gracefully)
         self.stop = False
@@ -55,12 +55,7 @@ class Client():
 
         sleep(int(args[3]))
         self.run = False
-
-            
         
-                         
-
-
     def _connect(self, connect:Tuple[str,int]) -> None:
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.connect(connect)
